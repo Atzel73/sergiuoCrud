@@ -6,11 +6,17 @@ import Button from "../componentes/button";
 
 import { Formik } from "formik";
 
+import { setDoc } from "../firebaseConfig";
 
 export default function Login() {
-    return(
+    return (
         <Formik
-            initialValues={{ email: "", password: ""}}
+            initialValues={{ email: "", password: "" }}
+            onSubmit={(values, { resetForm }) => {
+                setDoc(values.email, values.password);
+                console.log("Formulario enviado correctamente:", values.email, values.password);
+                resetForm();
+            }}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
                 <View
@@ -21,27 +27,28 @@ export default function Login() {
                         justifyContent: 'center',
                     }}
                 >
-                <Text style={{ color: '#223e4b', fontSize: 20, marginBottom: 16 }}>
-                    Login
-                </Text>
-                <View
-                    style={{ paddingHorizontal: 32, marginBottom: 16, width: '100%' }}
-                >
-                    <TextInput
-                        icon="mail"
-                        placeholder="Enter your email"
-                        autoCapitalize="none"
-                        autoCompleteType="email"
-                        keyboardType="email-address"
-                        keyboardAppearence="dark"
-                        returnKeyType="next"
-                        returnKeyLabel="next"
-                        onChangeText= {handleChange("email")}
+                    <Text style={{ color: '#223e4b', fontSize: 20, marginBottom: 16 }}>
+                        Login
+                    </Text>
+                    <View
+                        style={{ paddingHorizontal: 32, marginBottom: 16, width: '100%' }}
+                    >
+                        <TextInput
+                            icon="mail"
+                            placeholder="Enter your email"
+                            autoCapitalize="none"
+                            autoCompleteType="email"
+                            keyboardType="email-address"
+                            keyboardAppearence="dark"
+                            returnKeyType="next"
+                            returnKeyLabel="next"
+                            onChangeText={handleChange("email")}
 
-                        onBlur={handleBlur("email")}
-                        value={values.email}
+                            onBlur={handleBlur("email")}
+                            value={values.email}
 
-                    />
+                        />
+                    </View>
                     <View
                         style={{ paddingHorizontal: 32, marginBottom: 16, width: '100%' }}
                     >
@@ -59,10 +66,9 @@ export default function Login() {
                             onBlur={handleBlur("password")}
                             value={values.password}
                         />
-                    </View>
-                    <Button lavel="login" onPress={handleSubmit} />
-                </View>
 
+                    </View>
+                    <Button label="login" onPress={handleSubmit} />
                 </View>
             )}
         </Formik>
