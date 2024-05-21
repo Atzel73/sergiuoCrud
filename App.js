@@ -6,9 +6,18 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
 import Login from './screens/login';
-import Users from './screens/users'
+import Users from './screens/users';
+import Sumas from './screens/sumas';
 
 const Stack = createBottomTabNavigator();
+
+function SumasScreen() {
+  return(
+    <top.Navigator>
+      <Top.Screen name = "Sumas" component={Sumas} />
+    </top.Navigator>
+  )
+}
 
 export default function App() {
   return (
@@ -18,15 +27,9 @@ export default function App() {
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === 'animales') {
+            if (route.name === 'Sumas') {
               iconName = focused ? 'pets' : 'snippet-folder';
-            } else if (route.name === 'ALimentos') {
-              iconName = focused ? 'pets' : 'snippet-folder';
-            } else if (route.name === 'Practicas') {
-              iconName = focused ? 'pets' : 'snippet-folder'; 
-            } else if (route.name === 'Functions') {
-              iconName = focused ? 'pets' : 'snippet-folder';
-            }
+            } 
 
             return <MaterialIcons name={iconName} size={24} color="black" />
           },
@@ -35,8 +38,7 @@ export default function App() {
         })}
         
         >
-          <Tab.Screen name="Animales" component={AdminGroup} />
-          <Tab.Screen name="Alimentos" component={Aliments} />
+          <Tab.Screen name="Sumas" component={Sumas} />
           {/*<Tab.Screen name="Practicas" component={AnimationScreen} />
           <Tab.Screen name="Functions" component={InfoScreen} />*/}
         </Tab.Navigator>
