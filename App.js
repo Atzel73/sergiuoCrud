@@ -9,10 +9,17 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { MaterialIcons } from '@expo/vector-icons';
 import Login from './screens/login';
 import Users from './screens/users';
+import Sumas from './screens/sumas';
 
-const Stack = createStackNavigator();
-const Top = createMaterialTopTabNavigator();
-const Tab = createBottomTabNavigator();
+const Stack = createBottomTabNavigator();
+
+function SumasScreen() {
+  return(
+    <top.Navigator>
+      <Top.Screen name = "Sumas" component={Sumas} />
+    </top.Navigator>
+  )
+}
 
 export default function App() {
   return (
@@ -22,11 +29,9 @@ export default function App() {
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === 'Login') {
+            if (route.name === 'Sumas') {
               iconName = focused ? 'pets' : 'snippet-folder';
-            } else if (route.name === 'Users') {
-              iconName = focused ? 'pets' : 'snippet-folder';
-            }
+            } 
 
             // Return the MaterialIcons component with the appropriate icon name, size, and color
             return <MaterialIcons name={iconName} size={24} color={color} />;
@@ -34,9 +39,11 @@ export default function App() {
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
         })}
-      >
-        <Tab.Screen name="Login" component={Login} />
-        <Tab.Screen name="Users" component={Users} />
+        
+        >
+          <Tab.Screen name="Sumas" component={Sumas} />
+          {/*<Tab.Screen name="Practicas" component={AnimationScreen} />
+          <Tab.Screen name="Functions" component={InfoScreen} />*/}
       </Tab.Navigator>
     </NavigationContainer>
   );
