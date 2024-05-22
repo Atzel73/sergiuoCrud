@@ -9,31 +9,31 @@ export default function Users() {
 
     const [users, setUsersData] = useState([]);
 
-    useEffect(() => {
-        const getData = () => {
-            const q = query(collection(db, "users"));
-            const arrayEmpty = [];
+    // useEffect(() => {
+    //     const getData = () => {
+    //         const q = query(collection(db, "users"));
+    //         const arrayEmpty = [];
 
-            const sendData = onSnapshot(q, (querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    arrayEmpty.push(doc.data());
-                    console.log("Datos: ", doc.data());
-                });
-                setUsersData(arrayEmpty);
-            });
-        };
-        getData();
-    }, []);
+    //         const sendData = onSnapshot(q, (querySnapshot) => {
+    //             querySnapshot.forEach((doc) => {
+    //                 arrayEmpty.push(doc.data());
+    //                 console.log("Datos: ", doc.data());
+    //             });
+    //             setUsersData(arrayEmpty);
+    //         });
+    //     };
+    //     getData();
+    // }, []);
 
     return(
         <View>
-            {users.map((item, index) => {
+            {/* {users.map((item, index) => {
                 return (
                     <View key={index}>
                         <Text> Email: {item.email}</Text>
                     </View>
                 );
-            })}
+            })} */}
         </View>
     );
 }
