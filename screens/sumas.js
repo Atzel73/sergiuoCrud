@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 import TextInput from "../componentes/textInput";
 
 export default function Sumas() {
@@ -16,41 +17,42 @@ export default function Sumas() {
         setCount("");
     }
 
-    return(
+    return (
         <View>
-            <Text style = {{ textAlign: 'center', fontSize: 22, fontWeight: 'bold', fontStyle: 'italic', marginVertical: 10 }}>
-                Resultado {count}
+            <Text style={{ textAlign: 'center', fontSize: 22, fontWeight: 'bold', fontStyle: 'italic', marginVertical: 10 }}>
+                Resultado   {count}
             </Text>
-
-            <TouchableOpacity 
-                onPress = {Sumar()}
-                style = {{ borderWidth: 2, borderRadius: 90, borderColor: 'violet', padding: 10, margin: 10 }}
+            <TouchableOpacity
+                onPress={Sumar}
+                style={{ borderWidth: 2, borderRadius: 90, borderColor: 'violet', padding: 10, margin: 10 }}
             >
-                <Text style = {{ textAlign: 'center', fontSize: 22, fontWeight: 'bold', fontStyle: 'italic', marginVertical: 10 }}>
+                <Text
+                    style={{ textAlign: 'center', fontSize: 22, fontWeight: 'bold', fontStyle: 'italic', marginVertical: 10 }}
+                >
                     Sumar
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity 
-                onPress = {Vaciar()}
-                style = {{ borderWidth: 2, borderRadius: 90, borderColor: 'violet', padding: 10, margin: 10 }}
+            <TouchableOpacity
+                onPress={Vaciar}
+                style={{ borderWidth: 2, borderRadius: 90, borderColor: 'violet', padding: 10, margin: 10 }}
             >
-                <Text style = {{ textAlign: 'center', fontSize: 22, fontWeight: 'bold', fontStyle: 'italic', marginVertical: 10 }}>
+                <Text
+                    style={{ textAlign: 'center', fontSize: 22, fontWeight: 'bold', fontStyle: 'italic', marginVertical: 10 }}
+                >
                     Vaciar
                 </Text>
             </TouchableOpacity>
             <View>
                 <TextInput
-                    value = {num}
-                    onChangeText = {(num) => setNum(num)}
-                    style = {{ textAlign: 'center', borderBottomWidth: 2, borderBottomColor: 'violet', padding: 10, margin: 10 }}
-                    placeholder = "Introduzca un número"
-                />
+                    value={num}
+                    onChangeText={(num) => setNum(num)}
+
+                    placeholder="Introduzca un numero" />
                 <TextInput
-                    value = {num2}
-                    onChangeText = {(num2) => setNum2(num2)}
-                    style = {{ textAlign: 'center', borderBottomWidth: 2, borderBottomColor: 'violet', padding: 10, margin: 10 }}
-                    placeholder = "Introduzca un número"
-                />
+                    value={num2}
+                    onChangeText={(num2) => setNum2(num2)}
+
+                    placeholder="Introduzca un numero" />
             </View>
         </View>
     )

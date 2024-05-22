@@ -12,8 +12,9 @@ export default function TextInput({ icon, ...otherProps}) {
                 height: 48,
                 borderRadius: 8,
                 borderColor: validationcolor,
-                borderWidth: StyleSheet.hairlineWidth,
-                padding: 8
+                borderWidth: 2,
+                padding: 8,
+                margin: 10
             }}
             >
             <View style={{ padding: 8 }}>

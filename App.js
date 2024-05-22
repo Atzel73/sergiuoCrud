@@ -10,6 +10,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import Login from './screens/login';
 import Users from './screens/users';
 import Sumas from './screens/sumas';
+const Tab = createBottomTabNavigator();
 
 const Stack = createBottomTabNavigator();
 
